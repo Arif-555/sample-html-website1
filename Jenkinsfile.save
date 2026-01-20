@@ -31,7 +31,7 @@ pipeline {
                         repoBranch = "staging"
                         INSTANCE_IP = STAGING_INSTANCE
                     } else if (params.ENVIRONMENT == 'main') {
-                        repoBranch = "main"
+                        repoBranch = "mast"
                         INSTANCE_IP = PROD_INSTANCE
                     }
 
@@ -42,7 +42,7 @@ pipeline {
                             ssh -o StrictHostKeyChecking=no ubuntu@${INSTANCE_IP} <<EOF
                             if [ ! -d "${repoDirectory}" ]; then
                                 echo "Repository not found, cloning ${repoBranch} branch..."
-                                git clone --branch ${repoBranch} git@github.com:Arif-555/sample-html-website1.git ${repoDirectory}
+                                git clone --branch ${repoBranch} git@github.com:lbistech/sample-html-website.git ${repoDirectory}
                             else
                                 echo "Repository found, pulling latest changes for ${repoBranch}..."
                                 cd ${repoDirectory} && git pull origin ${repoBranch}
