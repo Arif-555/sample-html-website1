@@ -11,7 +11,7 @@ pipeline {
 
     parameters {
         // Environment parameter to trigger the respective branch deployment
-        choice(name: 'ENVIRONMENT', choices: ['dev', 'staging', 'master'], description: 'Select the Environment to deploy')
+        choice(name: 'ENVIRONMENT', choices: ['dev', 'staging', 'main'], description: 'Select the Environment to deploy')
     }
 
     stages {
