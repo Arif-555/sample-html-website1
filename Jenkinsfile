@@ -5,7 +5,7 @@ pipeline {
         // Define the SSH credentials to connect with the EC2 instances
         SSH_CREDENTIALS = 'ubuntu'
         DEV_INSTANCE = '52.221.182.12'      // EC2 IP for Dev Environment
-        STAGING_INSTANCE = '3.0.100.219'  // EC2 IP for Staging Environment
+        STAGING_INSTANCE = '47.129.41.50'  // EC2 IP for Staging Environment
         PROD_INSTANCE = '47.129.225.205'    // EC2 IP for Production Environment
     }
 
