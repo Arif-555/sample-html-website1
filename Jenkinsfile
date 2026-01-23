@@ -6,12 +6,12 @@ pipeline {
         SSH_CREDENTIALS = 'ubuntu'
         DEV_INSTANCE = '13.229.135.49'      // EC2 IP for Dev Environment
         STAGING_INSTANCE = '13.215.248.29'  // EC2 IP for Staging Environment
-        PROD_INSTANCE = '3.1.6.180'    // EC2 IP for Production Environment
+        PROD_INSTANCE = '13.215.176.150'    // EC2 IP for Production Environment
     }
 
     parameters {
         // Environment parameter to trigger the respective branch deployment
-        choice(name: 'ENVIRONMENT', choices: ['dev', 'stagging', 'master'], description: 'Select the Environment to deploy')
+        choice(name: 'ENVIRONMENT', choices: ['dev', 'stagging', 'main', 'prod'], description: 'Select the Environment to deploy')
     }
 
     stages {
@@ -30,8 +30,8 @@ pipeline {
                     } else if (params.ENVIRONMENT == 'stagging') {
                         repoBranch = "stagging"
                         INSTANCE_IP = STAGING_INSTANCE
-                    } else if (params.ENVIRONMENT == 'master') {
-                        repoBranch = "master"
+                    } else if (params.ENVIRONMENT == 'prod') {
+                        repoBranch = "prod"
                         INSTANCE_IP = PROD_INSTANCE
                     }
 
